@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  userId: 1
+  name: MyString
+  comments: MyText
+  type: 1
+  closestCityStart: MyString
+  closestCityEnd: MyString
+
+two:
+  userId: 1
+  name: MyString
+  comments: MyText
+  type: 1
+  closestCityStart: MyString
+  closestCityEnd: MyString
