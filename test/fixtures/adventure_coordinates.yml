@@ -2,14 +2,14 @@
 
 one:
   adventure_id: 1
-  date_time: 2013-12-09 22:25:50
+  date_time: 2013-12-10 22:33:41
   lat: 1.5
   lon: 1.5
   elevation: 1
 
 two:
   adventure_id: 1
-  date_time: 2013-12-09 22:25:50
+  date_time: 2013-12-10 22:33:41
   lat: 1.5
   lon: 1.5
   elevation: 1
