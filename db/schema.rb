@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131211033341) do
+ActiveRecord::Schema.define(version: 20131215230305) do
 
   create_table "adventure_asset_types", force: true do |t|
     t.string   "adventure_asset_type"
@@ -78,5 +78,7 @@ ActiveRecord::Schema.define(version: 20131211033341) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end
