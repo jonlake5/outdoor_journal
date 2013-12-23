@@ -7,6 +7,12 @@ describe "StaticPages" do
       visit root_path
       expect(page).to have_content ('Outdoor Journal')
     end
+
+    it "should have the correct title" do
+      visit root_path
+      expect(page).to have_title('Outdoor Journal | Home')
+    end
+
   end
 
   describe "Help Page" do
@@ -15,6 +21,12 @@ describe "StaticPages" do
       visit help_path
       expect(page).to have_content ('Need Help?')
     end
+
+    it "should have the correct title" do
+      visit help_path
+      expect(page).to have_title('Outdoor Journal | Help')
+    end
+
   end
 
   describe "About Page" do
@@ -23,6 +35,12 @@ describe "StaticPages" do
       visit about_path
       expect(page).to have_content ('About Outdoor Journal')
     end
+
+    it "should have the correct title" do
+      visit about_path 
+      expect(page).to have_title('Outdoor Journal | About')
+    end
+
   end
 
 
