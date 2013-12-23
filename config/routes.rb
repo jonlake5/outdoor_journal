@@ -1,11 +1,20 @@
 OutdoorJournal::Application.routes.draw do
 
+  get "static_pages/home"
+  get "static_pages/help"
+  get "static_pages/about"
+  root  'static_pages#home'
+  match '/help', to: 'static_pages#help', via: 'get'
+  match '/about', to: 'static_pages#about', via: 'get'
+
+
+
+
   get "adventures/new"
   get "adventures/edit"
   resources :users
   get "users/new"
   match '/signup', to: 'users#new', via: 'get'
-
 
 ##Sign in form
   resources :sessions, only: [:new, :create, :destroy]
