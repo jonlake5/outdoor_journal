@@ -1,6 +1,24 @@
 <HTML>
 <body>
-  <%= @user.f_name %>
-  <%= @user.l_name %>
+  <% if signed_in? %>
+  <%= @user.adventures.each do |adv|  %>
+    <p>
+    <%= adv.name %>
+    </p>
+  <% end %>
+    <div class="row">
+      <aside class="span4">
+        <section>
+          <%= render 'adventures/adventure_form' %>
+        </section>
+      </aside>
+    </div>
+  <% else %>
+    <div class="center hero-unit">
+      <h1>Welcome to the Outdoor Journal</h1>
+      <h2>This is the home page<h2>
+  <% end %>
+
+
 </body>
 </HTML>

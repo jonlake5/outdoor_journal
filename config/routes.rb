@@ -15,6 +15,7 @@ OutdoorJournal::Application.routes.draw do
   resources :users
   get "users/new"
   match '/signup', to: 'users#new', via: 'get'
+  resources :adventures
 
 ##Sign in form
   resources :sessions, only: [:new, :create, :destroy]
