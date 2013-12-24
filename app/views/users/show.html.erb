@@ -1,24 +1,11 @@
-<HTML>
-<body>
   <% if signed_in? %>
-  <%= @user.adventures.each do |adv|  %>
-    <p>
-    <%= adv.name %>
-    </p>
-  <% end %>
-    <div class="row">
-      <aside class="span4">
-        <section>
-          <%= render 'adventures/adventure_form' %>
-        </section>
-      </aside>
-    </div>
+    <h1> Welcome <%= @user.f_name %> <%= @user.l_name %> </h1>
+    <%= link_to("Look at your adventures", adventures_path) %>
+    <p></p>
   <% else %>
     <div class="center hero-unit">
       <h1>Welcome to the Outdoor Journal</h1>
-      <h2>This is the home page<h2>
+      <h2>You are not signed in<h2>
   <% end %>
 
 
-</body>
-</HTML>

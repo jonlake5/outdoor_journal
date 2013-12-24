@@ -1,14 +1,14 @@
 class UsersController < ApplicationController
-  before_action :signed_in_user, only: [:edit, :update, :index]
+  before_action :signed_in_user, only: [:edit, :update, :index, :show]
   before_action :correct_user,   only: [:edit, :update, :show]
   before_action :admin_user,     only: [:destroy]
   def show
     @user = User.find(params[:id])
-    @adventure = current_user.adventures.build if signed_in?
   end
 
   def index
-    @users = User.all
+    @user = current_user
+    redirect_to :controller => 'users', :action => 'show', :id => @user.id
   end
 
   def new

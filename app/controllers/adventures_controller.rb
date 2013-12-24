@@ -23,6 +23,8 @@ class AdventuresController < ApplicationController
   end
 
   def index
+    @adventures = current_user.adventures
+    @user = current_user
   end
 
   private
