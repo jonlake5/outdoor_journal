@@ -1,0 +1,8 @@
+<% provide(:title, "Show Adventures") %>
+<h1>This is the show action</h1>
+<%= @user.f_name %>
+<% @adventures.each do |adv| %>
+  <p>
+  <%= adv.name %>
+  </p>
+<% end %>

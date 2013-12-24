@@ -1,6 +1,8 @@
 class AdventuresController < ApplicationController
 
-
+  def new
+    @adventure = Adventure.new
+  end
 
   def create
     @adventure = current_user.adventures.build(adventure_params)
@@ -15,9 +17,13 @@ class AdventuresController < ApplicationController
   def edit
   end
 
+  def show
+    @adventures = current_user.adventures
+    @user = current_user
+  end
 
-
-
+  def index
+  end
 
   private
     def adventure_params

@@ -1,2 +1,13 @@
-<h1>Adventures#new</h1>
-<p>Find me in app/views/adventures/new.html.erb</p>
+<HTML>
+<BODY>
+<%= form_for(@adventure) do |f| %>
+  <div class="field">
+    <%= f.label :name, "Adventure Name" %>
+    <%= f.text_field :name, placeholder: "Name for your new adventure.." %>
+    <%= f.label :comments, "Comments" %>
+    <%= f.text_area :comments %>
+  </div>
+  <%= f.submit  "Post", class: "btn btn-large btn-primary" %>
+<% end %>
+</BODY>
+</HTML>

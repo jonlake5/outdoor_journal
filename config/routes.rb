@@ -10,12 +10,15 @@ OutdoorJournal::Application.routes.draw do
 
 
 
-  get "adventures/new"
+  resources :adventures
+  get "adventures/create"
+  get "adventures/show"
   get "adventures/edit"
+
+
   resources :users
   get "users/new"
   match '/signup', to: 'users#new', via: 'get'
-  resources :adventures
 
 ##Sign in form
   resources :sessions, only: [:new, :create, :destroy]
