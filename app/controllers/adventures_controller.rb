@@ -1,4 +1,6 @@
 class AdventuresController < ApplicationController
+  include SessionsHelper
+  before_action :signed_in_user
 
   def new
     @adventure = Adventure.new
@@ -31,5 +33,14 @@ class AdventuresController < ApplicationController
     def adventure_params
       params.require(:adventure).permit(:name, :user_id, :comments)
     end
+
+
+  def signed_in_user
+    unless signed_in?
+      store_location
+      redirect_to signin_url, notice: "Please sign in" unless signed_in?
+    end
+  end
+
 
 end
