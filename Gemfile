@@ -8,6 +8,9 @@ gem 'rails', '4.0.2'
 # Bootstrap CSS
 gem 'bootstrap-sass', '2.3.2.0'
 
+#require gps for importing files
+gem 'gpx'
+gem 'libxml-ruby'
 # Use sqlite3 as the database for Active Record
 group :development do
   gem 'sqlite3'
@@ -19,7 +22,8 @@ group :test do
   gem 'selenium-webdriver', '2.35.1'
   gem 'capybara', '2.1.0'
 end
-
+# Install for file upload
+gem 'carrierwave'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

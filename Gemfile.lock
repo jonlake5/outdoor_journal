@@ -37,6 +37,10 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (0.9.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
     coffee-rails (4.0.1)
@@ -50,6 +54,7 @@ GEM
     erubis (2.7.0)
     execjs (2.0.2)
     ffi (1.9.3)
+    gpx (0.6)
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (1.5.3)
@@ -59,6 +64,7 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
+    libxml-ruby (2.7.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -153,9 +159,12 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.1.2)
   bootstrap-sass (= 2.3.2.0)
   capybara (= 2.1.0)
+  carrierwave
   coffee-rails (~> 4.0.0)
+  gpx
   jbuilder (~> 1.2)
   jquery-rails
+  libxml-ruby
   pg (= 0.15.1)
   rails (= 4.0.2)
   rails_12factor (= 0.0.2)
