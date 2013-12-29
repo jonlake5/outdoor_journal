@@ -20,13 +20,24 @@ class AdventuresController < ApplicationController
   end
 
   def show
-    @adventures = current_user.adventures
+    @adventure = current_user.adventures.find(params[:id])
     @user = current_user
   end
 
   def index
     @adventures = current_user.adventures
     @user = current_user
+  end
+  
+  def upload
+    @adventure = current_user.adventures.first
+  end
+  
+  def parse
+  @fileName = params[:coords][:Tempfile]
+  @fileName2 = params[:coords][:tempFile]
+  @gpx = GPX::GPXFile.new(:gpx_file => (params[:coords][:uploaded_file].path))
+     
   end
 
   private

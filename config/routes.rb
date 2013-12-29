@@ -1,5 +1,6 @@
 OutdoorJournal::Application.routes.draw do
 
+
   get "static_pages/home"
   get "static_pages/help"
   get "static_pages/about"
@@ -10,11 +11,12 @@ OutdoorJournal::Application.routes.draw do
 
 
 
+  get "adventures/upload"
+  post "adventures/parse"
   resources :adventures
   get "adventures/create"
   get "adventures/show"
   get "adventures/edit"
-
 
   resources :users
   get "users/new"
