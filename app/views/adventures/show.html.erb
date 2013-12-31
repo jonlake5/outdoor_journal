@@ -3,3 +3,15 @@
 <%= @user.f_name %>
 <p>Adventure Name <%= @adventure.name %> </p>
 <p>Adventure Comments <%= @adventure.comments %> </p>
+<% if @coords[0].nil? %>
+
+<p>You haven't added any coordinates yet. Upload a gpx file
+  <%= render "upload" %>
+  </p>
+<% else %>
+  <p> Here are your coordinates for this trip </p>
+  <% @coords.each do |i| %>
+    <p> <%= i.lat %> <%= i.lon %> <%= i.elevation %> <%= i.date_time %> </p>
+  <% end %>
+
+<% end %>

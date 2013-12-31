@@ -22,6 +22,8 @@ class AdventuresController < ApplicationController
   def show
     @adventure = current_user.adventures.find(params[:id])
     @user = current_user
+    session[:adventure] = @adventure
+    @coords = @adventure.adventure_coordinates.to_a
   end
 
   def index
@@ -30,14 +32,18 @@ class AdventuresController < ApplicationController
   end
   
   def upload
-    @adventure = current_user.adventures.first
   end
   
   def parse
-  @fileName = params[:coords][:Tempfile]
-  @fileName2 = params[:coords][:tempFile]
-  @gpx = GPX::GPXFile.new(:gpx_file => (params[:coords][:uploaded_file].path))
-     
+
+    @gpx = GPX::GPXFile.new(:gpx_file => (params[:coords][:uploaded_file].path))
+    @adventure = session[:adventure]
+    @gpx.tracks.first.points.each do |i|
+      @coords = AdventureCoordinate.new
+      @coords = @adventure.adventure_coordinates.build(:lat => i.lat, :lon => i.lon, :elevation => i.elevation)
+      @coords.save
+    end
+
   end
 
   private

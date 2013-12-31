@@ -1,3 +1,6 @@
+<p> This is for Adventure <%= @adventure.id %> </p>
 <% @gpx.tracks.first.points.each do |i| %>
-  <%= i.lat %>
+  <p>
+  <%= @adventure.id %>,<%= i.time %>,<%= i.lat %>,<%= i.lon %>,<%= i.elevation %> 
+  </p>
 <% end %>
