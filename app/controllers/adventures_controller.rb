@@ -40,9 +40,10 @@ class AdventuresController < ApplicationController
     @adventure = session[:adventure]
     @gpx.tracks.first.points.each do |i|
       @coords = AdventureCoordinate.new
-      @coords = @adventure.adventure_coordinates.build(:lat => i.lat, :lon => i.lon, :elevation => i.elevation)
+      @coords = @adventure.adventure_coordinates.build(:lat => i.lat, :lon => i.lon, :elevation => i.elevation, :date_time => i.time)
       @coords.save
     end
+#    redirect_to @adventure
 
   end
 
