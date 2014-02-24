@@ -6,6 +6,9 @@ class AdventuresController < ApplicationController
     @adventure = Adventure.new
   end
 
+  def test
+  end
+
   def create
     @adventure = current_user.adventures.build(adventure_params)
     if @adventure.save

@@ -10,7 +10,7 @@ OutdoorJournal::Application.routes.draw do
 
 
 
-
+  get "adventures/test"
   get "adventures/upload"
   post "adventures/parse"
   resources :adventures

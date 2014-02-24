@@ -1,4 +1,6 @@
 <p> Adventures for <%= @user.f_name %> <%= @user.l_name %> </p>
+<div id="map-canvas" style="width: 100%; height: 100%">Hello</div>
 <% @adventures.each do |adv| %>
   <p><%= link_to adv.name, adv %></p>
 <% end %>
+<%= render "map" %>
