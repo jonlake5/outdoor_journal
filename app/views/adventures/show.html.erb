@@ -9,6 +9,10 @@
   <%= render "upload" %>
   </p>
 <% else %>
+  <div id="map-canvas"></div>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyCarFkFloIvQnB_gMYoFEZltyDk4K7vQfQ&sensor=false" %>
+  <%= javascript_include_tag "adventures" %>
   <p> Here are your coordinates for this trip </p>
   <% @coords.each do |i| %>
     <p> <%= i.lat %> <%= i.lon %> <%= i.elevation %> <%= i.date_time %> </p>

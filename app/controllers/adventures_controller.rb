@@ -27,6 +27,14 @@ class AdventuresController < ApplicationController
     @user = current_user
     session[:adventure] = @adventure
     @coords = @adventure.adventure_coordinates.to_a
+    @gon_lat_array =  Array.new
+    @gon_lon_array = Array.new
+    @coords.each  do |i|
+      @gon_lat_array.push i.lat
+      @gon_lon_array.push i.lon
+    end
+    gon.lat_array = @gon_lat_array
+    gon.lon_array = @gon_lon_array
   end
 
   def index

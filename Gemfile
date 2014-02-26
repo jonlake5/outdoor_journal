@@ -8,6 +8,9 @@ gem 'rails', '4.0.2'
 # Bootstrap CSS
 gem 'bootstrap-sass', '2.3.2.0'
 
+#Gon to pass variable to javascript
+gem 'gon'
+
 #To use the database for the session information
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 
