@@ -11,6 +11,9 @@ gem 'bootstrap-sass', '2.3.2.0'
 #Gon to pass variable to javascript
 gem 'gon'
 
+#HTTParty to get weather data
+gem 'httparty'
+
 #To use the database for the session information
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 
