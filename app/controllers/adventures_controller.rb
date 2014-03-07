@@ -13,7 +13,7 @@ class AdventuresController < ApplicationController
     @adventure = current_user.adventures.build(adventure_params)
     if @adventure.save
       flash[:success] = "Adventure Created"
-      redirect_to root_url
+      redirect_to @adventure
     else
       render 'static_pages/home'
    end
@@ -50,11 +50,12 @@ class AdventuresController < ApplicationController
     @gpx = GPX::GPXFile.new(:gpx_file => (params[:coords][:uploaded_file].path))
     @adventure = session[:adventure]
     @gpx.tracks.first.points.each do |i|
-      @coords = AdventureCoordinate.new
+      #@coords = AdventureCoordinate.new  # Don't need this line with the build statment
       @coords = @adventure.adventure_coordinates.build(:lat => i.lat, :lon => i.lon, :elevation => i.elevation, :date_time => i.time)
       @coords.save
+
     end
-#    redirect_to @adventure
+    redirect_to @adventure
 
   end
 
