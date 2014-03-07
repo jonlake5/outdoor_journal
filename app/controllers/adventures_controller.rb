@@ -95,14 +95,19 @@ class AdventuresController < ApplicationController
     city,state = city_state.split(', ')
     city.sub!(/ /, '_')
     datetime = @adventure.adventure_coordinates.first.date_time.to_s
-    date = datetime.scan(/\d\d\d\d-\d\d-\d\d/).to_s
-    datestr = date[0].gsub!(/-/,'')
+    date = datetime.scan(/\d\d\d\d-\d\d-\d\d/)
+    datestr = date[0].gsub(/-/,'')
     url = "http://api.wunderground.com/api/c99fea409bd14281/history_#{datestr}/q/#{state}/#{city}.json"
     resp = Net::HTTP.get_response(URI.parse(url))
     data = resp.body
     result = JSON.parse(data)
-    temp = result['history']['dailysummary'].first['meantempi']
-    temp
+    maxtemp = result['history']['dailysummary'].first['maxtempi']
+    mintemp = result['history']['dailysummary'].first['mintempi']
+    {
+      :maxtemp => maxtemp,
+     :mintemp => mintemp
+    }
+
   end
 
 
