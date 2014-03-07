@@ -62,6 +62,7 @@ class AdventuresController < ApplicationController
     @adventure.closestCityStart = @startcity
     @adventure.closestCityEnd = @endcity
     @adventure.save
+    @thisdate = get_weather_data(@startcity)
 #    redirect_to @adventure
 #    redirect_to :controller=>'WeatherData', :action=>
 
@@ -88,6 +89,20 @@ class AdventuresController < ApplicationController
     city = result['location']['city']
     state = result['location']['state']
     "#{city}, #{state}" 
+  end
+
+  def get_weather_data(city_state)
+    city,state = city_state.split(', ')
+    city.sub!(/ /, '_')
+    datetime = @adventure.adventure_coordinates.first.date_time.to_s
+    date = datetime.scan(/\d\d\d\d-\d\d-\d\d/).to_s
+    datestr = date[0].gsub!(/-/,'')
+    url = "http://api.wunderground.com/api/c99fea409bd14281/history_#{datestr}/q/#{state}/#{city}.json"
+    resp = Net::HTTP.get_response(URI.parse(url))
+    data = resp.body
+    result = JSON.parse(data)
+    temp = result['history']['dailysummary'].first['meantempi']
+    temp
   end
 
 
