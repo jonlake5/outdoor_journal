@@ -44,6 +44,8 @@ class AdventuresController < ApplicationController
   
   def upload
   end
+
+
   
   def parse
 
@@ -55,7 +57,13 @@ class AdventuresController < ApplicationController
       @coords.save
 
     end
-    redirect_to @adventure
+    @startcity = get_city_info(@adventure.adventure_coordinates.first.lat,@adventure.adventure_coordinates.first.lon)
+    @endcity = get_city_info(@adventure.adventure_coordinates.last.lat,@adventure.adventure_coordinates.last.lon)
+    @adventure.closestCityStart = @startcity
+    @adventure.closestCityEnd = @endcity
+    @adventure.save
+#    redirect_to @adventure
+#    redirect_to :controller=>'WeatherData', :action=>
 
   end
 
@@ -70,6 +78,16 @@ class AdventuresController < ApplicationController
       store_location
       redirect_to signin_url, notice: "Please sign in" unless signed_in?
     end
+  end
+
+  def get_city_info(lat,lon)
+    url="http://api.wunderground.com/api/c99fea409bd14281/geolookup/q/#{lat},#{lon}.json"
+    resp = Net::HTTP.get_response(URI.parse(url))
+    data = resp.body
+    result = JSON.parse(data)
+    city = result['location']['city']
+    state = result['location']['state']
+    "#{city}, #{state}" 
   end
 
 
