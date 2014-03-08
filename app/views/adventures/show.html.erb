@@ -3,6 +3,7 @@
 <%= @user.f_name %>
 <p>Adventure Name <%= @adventure.name %> </p>
 <p>Adventure Comments <%= @adventure.comments %> </p>
+  <%= link_to "Delete Adventure", { :controller => "adventures", :action => "destroy"}, method:  "delete" %>
 <% if @coords[0].nil? %>
 
 <p>You haven't added any coordinates yet. Upload a gpx file

@@ -6,6 +6,12 @@ class AdventuresController < ApplicationController
     @adventure = Adventure.new
   end
 
+  def destroy
+    @adventure =  session[:adventure]
+    @adventure.destroy
+    redirect_to :controller => 'adventures', :action => 'index'
+  end
+
   def test
   end
 
@@ -38,6 +44,7 @@ class AdventuresController < ApplicationController
   end
 
   def index
+    session[:adventure] = nil
     @adventures = current_user.adventures
     @user = current_user
   end

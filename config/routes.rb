@@ -17,6 +17,7 @@ OutdoorJournal::Application.routes.draw do
   get "adventures/create"
   get "adventures/show"
   get "adventures/edit"
+  delete "adventures/destroy"
 
   resources :users
   get "users/new"
