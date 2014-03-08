@@ -13,6 +13,7 @@
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyCarFkFloIvQnB_gMYoFEZltyDk4K7vQfQ&sensor=false" %>
   <%= javascript_include_tag "adventures" %>
+  <%= link_to "Delete Coordinates", :controller => "adventure_coordinates", :action => "destroy_all_for_adventure" %>
   <p> Here are your coordinates for this trip </p>
   <% @coords.each do |i| %>
     <p> <%= i.lat %> <%= i.lon %> <%= i.elevation %> <%= i.date_time %> </p>

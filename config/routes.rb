@@ -8,7 +8,7 @@ OutdoorJournal::Application.routes.draw do
   match '/help', to: 'static_pages#help', via: 'get'
   match '/about', to: 'static_pages#about', via: 'get'
 
-
+  get "adventure_coordinates/destroy_all_for_adventure"
 
   get "adventures/test"
   get "adventures/upload"

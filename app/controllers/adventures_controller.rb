@@ -62,7 +62,11 @@ class AdventuresController < ApplicationController
     @adventure.closestCityStart = @startcity
     @adventure.closestCityEnd = @endcity
     @adventure.save
-    @thisdate = get_weather_data(@startcity)
+    weather = get_weather_data(@startcity)
+    @maxtemp = weather[:maxtemp]
+    @mintemp = weather[:mintemp]
+    @weather_records = @adventure.weathers.build(:temp => weather[:maxtemp])
+    @weather_records.save
 #    redirect_to @adventure
 #    redirect_to :controller=>'WeatherData', :action=>
 
@@ -103,6 +107,8 @@ class AdventuresController < ApplicationController
     result = JSON.parse(data)
     maxtemp = result['history']['dailysummary'].first['maxtempi']
     mintemp = result['history']['dailysummary'].first['mintempi']
+#    conditions = result['history']['dailysummary'].first['conds']
+#    conditions = result['history']['dailysummary'].first['conditions']
     {
       :maxtemp => maxtemp,
      :mintemp => mintemp
