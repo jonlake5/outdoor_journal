@@ -1,9 +1,9 @@
 class Adventure < ActiveRecord::Base
-belongs_to :user
-has_one :adventure_type
-has_many :adventure_coordinates
-has_many :adventure_comments
-has_many :adventure_assets
-has_many :weathers
+  belongs_to :user
+  has_one :adventure_type
+  has_many :adventure_coordinates, :dependent => :delete_all
+  has_many :adventure_comments, :dependent => :delete_all
+  has_many :adventure_assets, :dependent => :delete_all
+  has_many :weathers, :dependent => :delete_all
 
 end
