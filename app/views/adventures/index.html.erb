@@ -2,3 +2,5 @@
 <% @adventures.each do |adv| %>
   <p><%= link_to adv.name, adv %></p>
 <% end %>
+<%= link_to "Create Adventure", { :controller => "adventures", :action => "new" } %>
+<p></p>

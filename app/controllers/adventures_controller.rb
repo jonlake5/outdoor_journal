@@ -74,8 +74,7 @@ class AdventuresController < ApplicationController
     @mintemp = weather[:mintemp]
     @weather_records = @adventure.weathers.build(:temp => weather[:maxtemp])
     @weather_records.save
-#    redirect_to @adventure
-#    redirect_to :controller=>'WeatherData', :action=>
+    redirect_to @adventure
 
   end
 
