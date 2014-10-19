@@ -12,7 +12,7 @@
 <% else %>
   <div id="map-canvas"></div>
   <%= javascript_include_tag "/assets/application" %>
-  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyCarFkFloIvQnB_gMYoFEZltyDk4K7vQfQ&sensor=false" %>
+  <%=# javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyCarFkFloIvQnB_gMYoFEZltyDk4K7vQfQ&sensor=false" %> 
   <%= javascript_include_tag "/assets/adventures" %>
   <%= link_to "Delete Coordinates", { :controller => "adventure_coordinates", :action => "destroy_all_for_adventure"}, method:  "delete" %>
 
