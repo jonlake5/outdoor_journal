@@ -30,6 +30,8 @@ class AdventuresController < ApplicationController
 
   def show
     @adventure = current_user.adventures.find(params[:id])
+    @cityStart = @adventure.closestCityStart
+    @cityEnd = @adventure.closestCityEnd
     @user = current_user
     session[:adventure] = @adventure
     @coords = @adventure.adventure_coordinates.to_a

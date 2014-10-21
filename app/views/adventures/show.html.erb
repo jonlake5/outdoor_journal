@@ -10,6 +10,9 @@
   <%= render "upload" %>
   </p>
 <% else %>
+  <div id="city start">
+    <p>City Start: <%=@cityStart%></p>
+  </div>
   <div id="map-canvas"></div>
   <%= javascript_include_tag "/assets/application" %>
   <%= javascript_include_tag "/assets/adventures" %>
