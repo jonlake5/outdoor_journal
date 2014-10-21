@@ -32,6 +32,7 @@ class AdventuresController < ApplicationController
     @adventure = current_user.adventures.find(params[:id])
     @cityStart = @adventure.closestCityStart
     @cityEnd = @adventure.closestCityEnd
+    @temp = @adventure.weathers.first.temp
     @user = current_user
     session[:adventure] = @adventure
     @coords = @adventure.adventure_coordinates.to_a
