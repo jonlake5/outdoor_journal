@@ -25,8 +25,8 @@ OutdoorJournal::Application.routes.draw do
   get 'users/:id', to: 'users#show', as: 'profile'
 #  match '/profile', to: 'users#show', via: 'get'
 ## Adventure Coordinates
-  get "adventure_coordinates/edit"
-
+  get 'adventure_coordinates/edit'
+  delete 'adventure_coordinates/delete_coords'
 
 
 
