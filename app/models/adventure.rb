@@ -1,6 +1,6 @@
 class Adventure < ActiveRecord::Base
   belongs_to :user
-  has_one :adventure_type
+  has_many :adventure_types
   has_many :adventure_coordinates, :dependent => :delete_all
   has_many :adventure_comments, :dependent => :delete_all
   has_many :adventure_assets, :dependent => :delete_all
