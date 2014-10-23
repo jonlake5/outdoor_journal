@@ -10,6 +10,7 @@ OutdoorJournal::Application.routes.draw do
 
   delete "adventure_coordinates/destroy_all_for_adventure"
 
+
   get "adventures/test"
   get "adventures/upload"
   post "adventures/parse"
@@ -18,12 +19,17 @@ OutdoorJournal::Application.routes.draw do
   get "adventures/show"
   get "adventures/edit"
   delete "adventures/destroy"
-
   resources :users
   get "users/new"
   match '/signup', to: 'users#new', via: 'get'
   get 'users/:id', to: 'users#show', as: 'profile'
 #  match '/profile', to: 'users#show', via: 'get'
+## Adventure Coordinates
+  get "adventure_coordinates/edit"
+
+
+
+
 
 ##Sign in form
   resources :sessions, only: [:new, :create, :destroy]

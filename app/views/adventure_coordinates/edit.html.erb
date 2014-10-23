@@ -1,0 +1,7 @@
+<h1>Select the coordinates you want to delete</h1>
+
+<% @adventure_coordinates.each do |coord| %>
+  <% label_string = "#{coord.lat}, #{coord.lon}, #{coord.date_time}" %>
+  <%= radio_button_tag(:coordinate, "coordinate") %>
+  <%= label_tag(:coordinate_id, label_string) %>
+<% end %>  
