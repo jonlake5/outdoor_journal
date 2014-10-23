@@ -15,6 +15,7 @@ class AdventureCoordinatesController < ApplicationController
     elsif params[:before_or_after] == "before"
       @adventure_coordinates.delete_all(["id < ?", params[:adv_id]])
     end
+    redirect_to @adventure
   end
 
   def edit
