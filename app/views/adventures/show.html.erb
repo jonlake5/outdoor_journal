@@ -14,6 +14,9 @@
     <p>City Start: <%=@cityStart%></p>
     <p>City End: <%=@cityEnd%></p>
     <p>Temp: <%=@temp%></p>
+    <p>Start: <%=@timeStart.strftime("%A, %B %e %Y %l:%M %p")%></p>
+    <p>End: <%=@timeEnd.strftime("%A, %B %e %Y %l:%M %p")%></p>
+    <p>Duration: <%= distance_of_time_in_words(@timeStart,@timeEnd)%></p>
   </div>
   <div id="map-canvas"></div>
   <%= javascript_include_tag "/assets/application" %>

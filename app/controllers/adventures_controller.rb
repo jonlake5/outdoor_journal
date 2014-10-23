@@ -30,6 +30,8 @@ class AdventuresController < ApplicationController
 
   def show
     @adventure = current_user.adventures.find(params[:id])
+    @timeStart = @adventure.adventure_coordinates.first.date_time
+    @timeEnd = @adventure.adventure_coordinates.last.date_time
     @cityStart = @adventure.closestCityStart
     @cityEnd = @adventure.closestCityEnd
     @temp = @adventure.weathers.first.temp
