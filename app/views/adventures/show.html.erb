@@ -3,7 +3,7 @@
 <%= @user.f_name %>
 <p>Adventure Name <%= @adventure.name %> </p>
 <p>Adventure Comments <%= @adventure.comments %> </p>
-  <%= link_to "Delete Adventure", { :controller => "adventures", :action => "destroy"}, method:  "delete" %>
+  <%= link_to "Delete Adventure", { :controller => "adventures", :action => "destroy"}, method:  "delete", data: { confirm: 'Are you sure you want to delete this adventure' } %>
 <br><br><h2>Adventure Information</h2>
 <% if @coords[0].nil? %>
 
@@ -22,7 +22,7 @@
   <div id="map-canvas"></div>
   <%= javascript_include_tag "/assets/application" %>
   <%= javascript_include_tag "/assets/adventures" %>
-  <%= link_to "Delete All Coordinates", { :controller => "adventure_coordinates", :action => "destroy_all_for_adventure"}, method:  "delete" %>
+  <%= link_to "Delete All Coordinates", { :controller => "adventure_coordinates", :action => "destroy_all_for_adventure"}, method:  "delete", data: { confirm: 'Are you sure you want to delete all coordinates' }  %>
   <div>
   <%= link_to "Delete Some Coordinates", { :controller => "adventure_coordinates", :action => "edit"}, method:  "get" %>
   </div>
