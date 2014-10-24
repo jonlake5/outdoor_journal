@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141023131419) do
+ActiveRecord::Schema.define(version: 20141024193811) do
 
   create_table "adventure_asset_types", force: true do |t|
     t.string   "adventure_asset_type"
@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 20141023131419) do
     t.string   "adventure_type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "adventure_id"
   end
 
   create_table "adventures", force: true do |t|
@@ -64,6 +63,7 @@ ActiveRecord::Schema.define(version: 20141023131419) do
     t.string   "closestCityEnd"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "adventure_type_id"
   end
 
   create_table "sessions", force: true do |t|

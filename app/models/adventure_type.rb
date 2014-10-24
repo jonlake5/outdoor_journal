@@ -1,3 +1,3 @@
 class AdventureType < ActiveRecord::Base
-belongs_to :adventure
+  has_many: adventures
 end
