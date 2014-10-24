@@ -20,7 +20,11 @@ class AdventureCoordinatesController < ApplicationController
 
   def edit
     @adventure = session[:adventure]
-    @adventure_coordinates = AdventureCoordinate.all.where(:adventure_id => @adventure.id)
+    if @adventure.nil?
+      redirect_to :controller => "adventures", :action => "index"
+    else 
+      @adventure_coordinates = AdventureCoordinate.all.where(:adventure_id => @adventure.id)
+    end
   end
 
 end
