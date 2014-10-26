@@ -6,6 +6,9 @@
     <%= f.text_field :name, placeholder: "Name for your new adventure.." %>
     <%= f.label :comments, "Comments" %>
     <%= f.text_area :comments %>
+    <% unless @adventure_types.nil? %>
+      <%= f.select(:adventure_type_id, @adventure_types) %>
+    <% end %>
   </div>
   <%= f.submit  "Post", class: "btn btn-large btn-primary" %>
 <% end %>

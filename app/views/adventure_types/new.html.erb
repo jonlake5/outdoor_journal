@@ -1,0 +1,11 @@
+<HTML>
+<BODY>
+<%= form_for(@adventure_types) do |f| %>
+  <div class="field">
+    <%= f.label :adventure_type, "Adventure Type" %>
+    <%= f.text_field :adventure_type, placeholder: "New Adventure_Type" %>
+  </div>
+  <%= f.submit  "Post", class: "btn btn-large btn-primary" %>
+<% end %>
+</BODY>
+</HTML>

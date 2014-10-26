@@ -1,6 +1,10 @@
 OutdoorJournal::Application.routes.draw do
 
 
+  resources :adventure_types, only: [:new, :create, :destroy, :index]
+  get "adventure_types/:id", to: 'adventure_types#show'
+  get "adventure_types/new"
+  get "adventure_types/edit"
   get "static_pages/home"
   get "static_pages/help"
   get "static_pages/about"
@@ -35,8 +39,7 @@ OutdoorJournal::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
-
-
+##adventure_types
 
  # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

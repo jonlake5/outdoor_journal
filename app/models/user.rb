@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   validates :f_name,  presence: true, length: { maximum: 50 }
   validates :l_name,  presence: true, length: { maximum: 50 }
   has_many :adventures, dependent: :destroy
+  has_many :adventure_types, dependent: :destroy
+
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end

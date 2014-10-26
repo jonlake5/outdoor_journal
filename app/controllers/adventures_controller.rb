@@ -1,9 +1,21 @@
 class AdventuresController < ApplicationController
   include SessionsHelper
+  include AdventureTypesHelper
+
   before_action :signed_in_user
 
   def new
     @adventure = Adventure.new
+    @user = current_user
+    @adventure_types = []
+    @temp_array = adventureTypesByUser(@user)
+    @temp_array.each do |i|
+      advid = i.id
+      advtype = i.adventure_type
+      myhash = [ advtype, advid ]
+      #@adventure_types.push(i)
+      @adventure_types.push(myhash)
+    end
   end
 
   def destroy
@@ -16,6 +28,7 @@ class AdventuresController < ApplicationController
   end
 
   def create
+    @adventure_types = adventureTypesByUser(current_user)
     @adventure = current_user.adventures.build(adventure_params)
     if @adventure.save
       flash[:success] = "Adventure Created"
@@ -87,7 +100,7 @@ class AdventuresController < ApplicationController
 
   private
     def adventure_params
-      params.require(:adventure).permit(:name, :user_id, :comments)
+      params.require(:adventure).permit(:name, :user_id, :comments, :adventure_type)
     end
 
 
