@@ -12,7 +12,7 @@
   </p>
 <% else %>
   <div id="city start">
-    <p>Adventure Type: <%= @adventure_type %>
+    <p>Adventure Type: <%= (@adventure_type or  "Unclassified") %>
     <p>City Start: <%=@cityStart%></p>
     <p>City End: <%=@cityEnd%></p>
     <p>Temp: <%=@temp%></p>
