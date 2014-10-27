@@ -1,10 +1,11 @@
 OutdoorJournal::Application.routes.draw do
 
 
-  resources :adventure_types, only: [:new, :create, :destroy, :index]
+  resources :adventure_types, only: [:edit, :new, :create, :destroy, :index, :show]
   get "adventure_types/:id", to: 'adventure_types#show'
   get "adventure_types/new"
   get "adventure_types/edit"
+  delete "adventure_types/destroy"
   get "static_pages/home"
   get "static_pages/help"
   get "static_pages/about"

@@ -8,13 +8,8 @@ class AdventuresController < ApplicationController
     @adventure = Adventure.new
     @user = current_user
     @adventure_types = []
-    @temp_array = adventureTypesByUser(@user)
-    @temp_array.each do |i|
-      advid = i.id
-      advtype = i.adventure_type
-      myhash = [ advtype, advid ]
-      #@adventure_types.push(i)
-      @adventure_types.push(myhash)
+    adventureTypesByUser(@user).each do |i|
+      @adventure_types.push([ i.adventure_type, i.id ])
     end
   end
 
@@ -39,6 +34,26 @@ class AdventuresController < ApplicationController
   end
 
   def edit
+    @adventure = current_user.adventures.find(params[:id])
+    @adventure_type = AdventureType.find(@adventure.adventure_type).adventure_type unless @adventure.adventure_type.nil?
+    #Needed to create the select
+    @adventure_types = []
+    adventureTypesByUser(current_user).each do |i|
+      @adventure_types.push([ i.adventure_type, i.id ])
+    end
+  end
+
+  def update
+    @adventure = current_user.adventures.find(params[:id])
+    @adventure.name =  params[:adventure][:name]
+    @adventure.comments =  params[:adventure][:comments]
+    @adventure.adventure_type_id = params[:adventure][:adventure_type_id]
+    if @adventure.save
+      flash[:success] = "Adventure Updated"
+      redirect_to @adventure
+    else
+      render 'static_pages/home'
+    end
   end
 
   def show

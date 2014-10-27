@@ -20,11 +20,19 @@ class AdventureTypesController < ApplicationController
   end
 
   def edit
+    @adventure_type = AdventureType.find(params[:id])
+    session[:adventure_type] = @adventure_type
   end
   def show
-    @adventure_types = current_user.adventure_types.all
+    @adventure_type = AdventureType.find(params[:id])
+    session[:adventure_type] = @adventure_type
   end
 
+  def destroy
+    @adventure_type = session[:adventure_type]
+    @adventure_type.destroy
+    redirect_to :controller => 'adventure_types', :action => 'index'
+  end
 
   private
     def adventure_types_params

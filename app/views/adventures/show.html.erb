@@ -4,6 +4,7 @@
 <p>Adventure Name <%= @adventure.name %> </p>
 <p>Adventure Comments <%= @adventure.comments %> </p>
   <%= link_to "Delete Adventure", { :controller => "adventures", :action => "destroy"}, method:  "delete", data: { confirm: 'Are you sure you want to delete this adventure' } %>
+  <%= link_to "Edit Adventure", { :controller => "adventures", :action => "edit"}, method:  "get"  %>
 <br><br><h2>Adventure Information</h2>
 <% if @coords[0].nil? %>
 

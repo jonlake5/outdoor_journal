@@ -1,2 +1,8 @@
 <h1>Adventures#edit</h1>
 <p>Find me in app/views/adventures/edit.html.erb</p>
+  <%= form_for @adventure, html: {class: "nifty_form"} do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_area :comments %>
+  <%= f.select(:adventure_type_id, @adventure_types) %>
+  <%= f.submit "Edit" %>
+  <% end %>

@@ -1,4 +1,7 @@
 <% @adventure_types.each do |i|  %>
- <%= i.adventure_type %>
+ <div>
+ <%= link_to i.adventure_type, [i] %>
+ <%= link_to "edit", [:edit, i] %>
+ </div>
  <br>
  <% end %>
