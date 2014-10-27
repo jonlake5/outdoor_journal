@@ -23,6 +23,7 @@ class AdventureTypesController < ApplicationController
     @adventure_type = AdventureType.find(params[:id])
     session[:adventure_type] = @adventure_type
   end
+
   def show
     @adventure_type = AdventureType.find(params[:id])
     session[:adventure_type] = @adventure_type
