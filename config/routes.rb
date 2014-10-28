@@ -1,7 +1,7 @@
 OutdoorJournal::Application.routes.draw do
 
 
-  resources :adventure_types, only: [:edit, :new, :create, :destroy, :index, :show]
+  resources :adventure_types, only: [:edit, :new, :create, :destroy, :index, :show, :update]
   get "adventure_types/:id", to: 'adventure_types#show'
   get "adventure_types/new"
   get "adventure_types/edit"

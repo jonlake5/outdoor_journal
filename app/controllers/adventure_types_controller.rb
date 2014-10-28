@@ -1,6 +1,8 @@
 class AdventureTypesController < ApplicationController
   include SessionsHelper
 
+  before_action :signed_in_user
+
   def new
     @adventure_types = AdventureType.new
   end
@@ -20,12 +22,25 @@ class AdventureTypesController < ApplicationController
   end
 
   def edit
-    @adventure_type = AdventureType.find(params[:id])
+    @adventure_type = current_user.adventure_types.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+    redirect_to :action => 'index' and return if !@adventure_type
     session[:adventure_type] = @adventure_type
   end
 
+  def update
+    @adventure_type = session[:adventure_type]
+    if @adventure_type.update_attributes(adventure_types_params) 
+      redirect_to :action => 'index'
+    else 
+      render 'edit'
+    end
+  end
+
   def show
-    @adventure_type = AdventureType.find(params[:id])
+    @adventure_type = current_user.adventure_types.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+          redirect_to :action => 'index' and return if !@adventure_type
     session[:adventure_type] = @adventure_type
   end
 

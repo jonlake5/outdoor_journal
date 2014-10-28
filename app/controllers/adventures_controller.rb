@@ -45,10 +45,7 @@ class AdventuresController < ApplicationController
 
   def update
     @adventure = current_user.adventures.find(params[:id])
-    @adventure.name =  params[:adventure][:name]
-    @adventure.comments =  params[:adventure][:comments]
-    @adventure.adventure_type_id = params[:adventure][:adventure_type_id]
-    if @adventure.save
+    if @adventure.update_attributes(adventure_params)
       flash[:success] = "Adventure Updated"
       redirect_to @adventure
     else
@@ -57,6 +54,7 @@ class AdventuresController < ApplicationController
   end
 
   def show
+    @user = current_user
     @adventure = current_user.adventures.find(params[:id])
     @adventure_type = AdventureType.find(@adventure.adventure_type).adventure_type unless @adventure.adventure_type.nil?
     unless @adventure.adventure_coordinates.first.nil?
