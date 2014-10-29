@@ -9,6 +9,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="banner">
+<%= image_tag "banner.png" %>
+</div>
 
 <%= yield %>
 <%= link_to "Sign out", signout_path, method: "delete" %>

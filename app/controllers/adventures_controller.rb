@@ -114,7 +114,7 @@ class AdventuresController < ApplicationController
 
   private
     def adventure_params
-      params.require(:adventure).permit(:name, :user_id, :comments, :adventure_type)
+      params.require(:adventure).permit(:name, :user_id, :comments, :adventure_type_id)
     end
 
 
