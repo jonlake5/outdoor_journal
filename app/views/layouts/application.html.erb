@@ -9,11 +9,26 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id="banner">
-<%= image_tag "banner.png" %>
-</div>
+  <div id="banner">
+  <%= image_tag "banner.png" %>
+  </div>
+  <div id="top_links">
+    <ul id="top_links_list">
+    <% if signed_in? %>
+      <li id="top_links_list"><%= link_to "Home", root_path %> </li>
+      <li id="top_links_list"><%= link_to "Adventures", adventures_path %> </li>
+      <li id="top_links_list"><%= link_to "Profile", @user %> </li> 
+      <li id="top_links_list"> <%= link_to "Sign out", signout_path, method: "delete" %></li>
+    <% else %>
+      <li id="top_links_list"><%= link_to "Home", root_path %> </li>
+      <li id="top_links_list"> <%= link_to "Sign Up", signup_path %></li>
+      <li id="top_links_list"> <%= link_to "Sign In", signin_path %></li>
+
+    <% end %>
+    </ul>
+  </div>
+
 
 <%= yield %>
-<%= link_to "Sign out", signout_path, method: "delete" %>
 </body>
 </html>

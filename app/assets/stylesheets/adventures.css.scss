@@ -6,8 +6,22 @@ body {
 }
 
 #banner {
-  width: 100%
+  margin: 0 auto;
 }
+#top_links {
+  width: 100%;
+  height: 30px;
+  background-color: #E6CC80;
+}
+#top_links_list li {
+  display: inline;
+  padding: .2em 1em;
+}
+
+#spacer {
+  height: 10px;
+}
+
 
 
 #map-canvas {
