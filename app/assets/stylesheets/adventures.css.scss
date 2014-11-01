@@ -2,16 +2,37 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
+  font-family: Tahoma;
+}
+#wrapper {
   width: 100%;
+  margin: 0px;
+  background-color: #f5efe9;
 }
 
 #banner {
-  margin: 0 auto;
+  position: absolute;
+  left: 100px; 
+
 }
+
+#banner_wrapper {
+  width: 100%;
+  position: relative;
+  height: 160px;
+}
+
+#content {
+  margin-left: 100px;
+  font-family: "Verdana";
+
+}
+
 #top_links {
   width: 100%;
   height: 30px;
   background-color: #E6CC80;
+  position: relative;
 }
 #top_links_list li {
   display: inline;
@@ -24,7 +45,17 @@ body {
 
 
 
+#map-wrapper {
+  overflow: hidden;
+}
+#adventure-info {
+float:left;
+}
+
 #map-canvas {
+  overflow: hidden; 
   height: 400px;
   width: 400px;
+  border-style: solid;
+  border-width: 5px;
 }
