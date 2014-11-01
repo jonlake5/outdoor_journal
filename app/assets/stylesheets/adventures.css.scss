@@ -1,55 +1,18 @@
 // Place all the styles related to the adventures controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body {
-  font-family: Tahoma;
-}
-#wrapper {
-  width: 100%;
-  margin: 0px;
-  background-color: #f5efe9;
-}
 
-#banner {
-  position: absolute;
-  left: 100px; 
 
-}
-
-#banner_wrapper {
-  width: 100%;
-  position: relative;
-  height: 160px;
-}
-
-#content {
-  margin-left: 100px;
-  font-family: "Verdana";
-
-}
-
-#top_links {
-  width: 100%;
-  height: 30px;
-  background-color: #E6CC80;
-  position: relative;
-}
-#top_links_list li {
-  display: inline;
-  padding: .2em 1em;
-}
-
-#spacer {
-  height: 10px;
-}
 
 
 
 #map-wrapper {
   overflow: hidden;
 }
+
 #adventure-info {
-float:left;
+  float:left;
+  margin-right: 50px;
 }
 
 #map-canvas {

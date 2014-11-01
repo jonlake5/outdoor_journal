@@ -1,6 +1,7 @@
-<p> Adventures for <%= @user.f_name %> <%= @user.l_name %> </p>
-<% @adventures.each do |adv| %>
+<div id="adventures-index">
+  <p> Adventures for <%= @user.f_name %> <%= @user.l_name %> </p>
+  <% @adventures.each do |adv| %>
   <p><%= link_to adv.name, adv %></p>
-<% end %>
-<%= link_to "Create Adventure", { :controller => "adventures", :action => "new" } %>
-<p></p>
+  <% end %>
+  <%= link_to "Create Adventure", { :controller => "adventures", :action => "new" } %>
+</div>

@@ -1,32 +1,39 @@
 <% provide(:title, "Show Adventures") %>
-<h1>This is the show action</h1>
-<%= @user.f_name %>
-<p>Adventure Name <%= @adventure.name %> </p>
-<p>Adventure Comments <%= @adventure.comments %> </p>
-  <%= link_to "Delete Adventure", { :controller => "adventures", :action => "destroy"}, method:  "delete", data: { confirm: 'Are you sure you want to delete this adventure' } %>
-  <%= link_to "Edit Adventure", { :controller => "adventures", :action => "edit"}, method:  "get"  %>
-<br><br><h2>Adventure Information</h2>
-<% if @coords[0].nil? %>
-
-<p>You haven't added any coordinates yet. Upload a gpx file
-  <%= render "upload" %>
-  </p>
-<% else %>
-  <div id="city start">
-    <p>Adventure Type: <%= (@adventure_type or  "Unclassified") %>
-    <p>City Start: <%=@cityStart%></p>
-    <p>City End: <%=@cityEnd%></p>
-    <p>Temp: <%=@temp%></p>
-    <p>Start: <%=@timeStart.strftime("%A, %B %e %Y %l:%M %p")%></p>
-    <p>End: <%=@timeEnd.strftime("%A, %B %e %Y %l:%M %p")%></p>
-    <p>Duration: <%= distance_of_time_in_words(@timeStart,@timeEnd)%></p>
-  </div>
-  <div id="map-canvas"></div>
-  <%= javascript_include_tag "/assets/application" %>
-  <%= javascript_include_tag "/assets/adventures" %>
-  <%= link_to "Delete All Coordinates", { :controller => "adventure_coordinates", :action => "destroy_all_for_adventure"}, method:  "delete", data: { confirm: 'Are you sure you want to delete all coordinates' }  %>
-  <div>
-  <%= link_to "Delete Some Coordinates", { :controller => "adventure_coordinates", :action => "edit"}, method:  "get" %>
+  <div id="show-adventures">
+    <% if @coords[0].nil? %>
+      <p>You haven't added any coordinates yet. Upload a gpx file
+      <%= render "upload" %>
+      </p>
+    <% else %>
+    <div id="spacer">
+    </div>
+    <div id="spacer">
+    </div>
+    <div id="map-wrapper">
+      <div id="adventure-info">
+        <h2><%= @adventure.name %></h2>
+        <p>Adventure Comments: <%= @adventure.comments %> </p>
+        <p>Adventure Type: <%= (@adventure_type or  "Unclassified") %>
+        <p>City Start: <%=@cityStart%></p>
+        <p>City End: <%=@cityEnd%></p>
+        <p>Temp: <%=@temp%></p>
+        <p>Start: <%=@timeStart.strftime("%A, %B %e %Y %l:%M %p")%></p>
+        <p>End: <%=@timeEnd.strftime("%A, %B %e %Y %l:%M %p")%></p>
+        <p>Duration: <%= distance_of_time_in_words(@timeStart,@timeEnd)%></p>
+        <%= link_to "Delete Adventure", { :controller => "adventures", :action => "destroy"}, method:  "delete", data: { confirm: 'Are you sure you want to delete this adventure' } %>
+       |  <%= link_to "Edit Adventure", { :controller => "adventures", :action => "edit"}, method:  "get"  %>
+      </div>
+      <div id="map-wrapper">
+        <div id="map-canvas">
+        </div>
+       <p><%= link_to "Delete All Coordinates", { :controller => "adventure_coordinates", :action => "destroy_all_for_adventure"}, method:  "delete", data: { confirm: 'Are you sure you want to delete all coordinates' }  %>
+       |
+        <%= link_to "Delete Some Coordinates", { :controller => "adventure_coordinates", :action => "edit"}, method:  "get" %>
+        </p>
+      </div>
+    <%= javascript_include_tag "/assets/application" %>
+    <%= javascript_include_tag "/assets/adventures" %>
+    </div>
   </div>
 <% end %>
 <br>

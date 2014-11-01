@@ -9,26 +9,35 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id="banner">
-  <%= image_tag "banner.png" %>
+  <div id="wrapper">
+    <div id="banner_wrapper">
+      <div id="top_links_wrapper">
+        <div id="top_links">
+          <ul id="top_links_list">
+           <% if signed_in? %>
+            <li id="top_links_list"><%= link_to "Home", root_path %> </li>
+            <li id="top_links_list"><%= link_to "Adventures", adventures_path %> </li>
+            <li id="top_links_list"><%= link_to "Profile", @user %> </li> 
+            <li id="top_links_list"> <%= link_to "Sign out", signout_path, method: "delete" %></li>
+          <% else %>
+            <li id="top_links_list"><%= link_to "Home", root_path %> </li>
+            <li id="top_links_list"> <%= link_to "Sign Up", signup_path %></li>
+            <li id="top_links_list"> <%= link_to "Sign In", signin_path %></li>
+          <% end %>
+
+          </ul>
+        </div>
+      </div>
+        <%= image_tag("banner.png", {:id=> "banner", :align=> "middle"}) %>
+    </div>
+    <div id="content">
+      <%= yield %>
+    </div>
   </div>
-  <div id="top_links">
-    <ul id="top_links_list">
-    <% if signed_in? %>
-      <li id="top_links_list"><%= link_to "Home", root_path %> </li>
-      <li id="top_links_list"><%= link_to "Adventures", adventures_path %> </li>
-      <li id="top_links_list"><%= link_to "Profile", @user %> </li> 
-      <li id="top_links_list"> <%= link_to "Sign out", signout_path, method: "delete" %></li>
-    <% else %>
-      <li id="top_links_list"><%= link_to "Home", root_path %> </li>
-      <li id="top_links_list"> <%= link_to "Sign Up", signup_path %></li>
-      <li id="top_links_list"> <%= link_to "Sign In", signin_path %></li>
-
-    <% end %>
-    </ul>
+  <div id="footer_wrapper">
+    <div id="footer_text">
+      <p>Outdoor Journal Copyright 2014</p>
+    </div>
   </div>
-
-
-<%= yield %>
 </body>
 </html>
