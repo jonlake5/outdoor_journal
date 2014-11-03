@@ -7,8 +7,11 @@
     <%= f.label :comments, "Comments" %>
     <%= f.text_area :comments %>
     <% unless @adventure_types.nil? %>
+      <%= f.label :adventure_type_id, "Adventure Type" %>
       <%= f.select(:adventure_type_id, @adventure_types) %>
+      or add a new one
     <% end %>
+    <%= f.text_field :new_adventure_type %>
   </div>
   <%= f.submit  "Post", class: "btn btn-large btn-primary" %>
 <% end %>

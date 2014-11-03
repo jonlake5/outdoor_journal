@@ -45,7 +45,7 @@ class AdventureTypesController < ApplicationController
   end
 
   def destroy
-    @adventure_type = session[:adventure_type]
+    @adventure_type = AdventureType.find(params[:id])
     @adventure_type.destroy
     redirect_to :controller => 'adventure_types', :action => 'index'
   end
