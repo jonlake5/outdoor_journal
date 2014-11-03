@@ -1,13 +1,17 @@
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCarFkFloIvQnB_gMYoFEZltyDk4K7vQfQ&sensor=false"
+
 function initialize() {
- // alert(gon.lat_array);
   var mapOptions = {
     center: new google.maps.LatLng(gon.lat_array[0], gon.lon_array[0]),
     zoom: 15 
   };
+
+  //Create map object
   var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+
+ //Create an array of all coordinates 
   var flightPlanCoordinates = new Array();
-  
   for (var i = 0; i < gon.lat_array.length; i++) {
     flightPlanCoordinates.push(new google.maps.LatLng(gon.lat_array[i], gon.lon_array[i]));
   }
@@ -23,7 +27,8 @@ function initialize() {
 }
 
   
-google.maps.event.addDomListener(window, 'load', initialize); 
+ //Print Map
+ google.maps.event.addDomListener(window, 'load', initialize); 
 
 
 
