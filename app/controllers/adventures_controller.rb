@@ -56,6 +56,7 @@ class AdventuresController < ApplicationController
   def show
     @user = current_user
     @adventure = current_user.adventures.find(params[:id])
+#    @adventure_tags = @adventure.ad
     @adventure_type = AdventureType.find(@adventure.adventure_type).adventure_type unless @adventure.adventure_type.nil?
     unless @adventure.adventure_coordinates.first.nil?
       @timeStart = @adventure.adventure_coordinates.first.date_time 

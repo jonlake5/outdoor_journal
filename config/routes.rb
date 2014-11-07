@@ -1,6 +1,10 @@
 OutdoorJournal::Application.routes.draw do
 
 
+  get "adventure_tags/new"
+  get "adventure_tags/create"
+  get "adventure_tags/update"
+  get "adventure_tags/edit"
   resources :adventure_types, only: [:edit, :new, :create, :destroy, :index, :show, :update]
   get "adventure_types/:id", to: 'adventure_types#show'
   get "adventure_types/new"
@@ -15,6 +19,7 @@ OutdoorJournal::Application.routes.draw do
 
   delete "adventure_coordinates/destroy_all_for_adventure"
 
+  resources :adventure_tags, only: [:new, :edit, :create, :destroy]
 
   get "adventures/test"
   get "adventures/upload"

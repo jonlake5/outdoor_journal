@@ -7,7 +7,8 @@ class Adventure < ActiveRecord::Base
   has_many :weathers, :dependent => :delete_all
   attr_accessor :new_adventure_type
   before_save :create_adventure_type_from_name
-
+  has_many :adventure_tags
+  has_many :user_defined_adventure_tags, through: :adventure_tags
 
 
   def create_adventure_type_from_name

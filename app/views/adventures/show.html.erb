@@ -34,6 +34,15 @@
     <%= javascript_include_tag "/assets/application" %>
     <%= javascript_include_tag "/assets/adventures" %>
     </div>
+    <div id=adventure-tag-wrapper>
+      <div id=adventure-tag-form>
+        <%= render "tagform" %>
+      </div>
+      <div id=adventure-tags-show>
+        <%= render "tag" %>
+      </div>
+    </div>
+    </div>
   </div>
 <% end %>
 <br>

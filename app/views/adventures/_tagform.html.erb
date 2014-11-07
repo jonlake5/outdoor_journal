@@ -1,0 +1,6 @@
+<%= form_for AdventureTag.new do |f| %>
+  <%= f.text_field :new_tag %>
+  <%  f.hidden_field :user_id, value:  @user.id %> 
+  <%  f.hidden_field :adventure_id, value:  @adventure.id %> 
+  <%= f.submit "Apply Tag" %>
+<% end %>

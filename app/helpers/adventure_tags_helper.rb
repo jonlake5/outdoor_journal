@@ -1,0 +1,2 @@
+module AdventureTagsHelper
+end
