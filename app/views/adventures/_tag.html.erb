@@ -1,5 +1,7 @@
 <p>Tags</p>
 <% @adventure.user_defined_adventure_tags.each do |t| %>
   <%= t.tag %>
+  <% @adv_tag = AdventureTag.where(:adventure_id => @adventure.id , :user_defined_adventure_tag_id => t.id).first %>
+  <%= link_to "remove", { :controller => "adventure_tags", :action => "destroy", :id => @adv_tag.id }, method: "delete", data: {confirm: 'Remove Tag'} %>
   <br>
 <% end %>

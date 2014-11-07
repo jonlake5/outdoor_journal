@@ -1,6 +1,7 @@
 OutdoorJournal::Application.routes.draw do
 
 
+  resources :adventure_tags, only: [:destroy, :edit, :new, :create]
   get "adventure_tags/new"
   get "adventure_tags/create"
   get "adventure_tags/update"

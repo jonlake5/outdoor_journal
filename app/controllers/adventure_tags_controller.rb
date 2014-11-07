@@ -20,6 +20,13 @@ class AdventureTagsController < ApplicationController
       redirect_to @adventure
     end
   end
+  def destroy
+    @adventure = session[:adventure]
+    @adv_tag = AdventureTag.find(params[:id])
+    @adv_tag.destroy
+    redirect_to @adventure
+
+  end
 
   def update
   end
