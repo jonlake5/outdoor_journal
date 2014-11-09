@@ -21,6 +21,11 @@ gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 gem 'gpx'
 gem 'libxml-ruby'
 # Use sqlite3 as the database for Active Record
+group :development, :test do
+ gem 'factory_girl_rails'
+end
+
+
 group :development do
   gem 'sqlite3'
   #use Rspec
@@ -30,6 +35,9 @@ end
 group :test do
   gem 'selenium-webdriver', '2.35.1'
   gem 'capybara', '2.1.0'
+  gem 'faker'  
+  gem 'guard-rspec' 
+  gem 'launchy' 
 end
 # Install for file upload
 gem 'carrierwave'
