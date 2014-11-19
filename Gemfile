@@ -23,13 +23,13 @@ gem 'libxml-ruby'
 # Use sqlite3 as the database for Active Record
 group :development, :test do
  gem 'factory_girl_rails'
+ gem 'rspec-rails', '2.13.1'
 end
 
 
 group :development do
   gem 'sqlite3'
   #use Rspec
-  gem 'rspec-rails', '2.13.1'
 end
 
 group :test do
